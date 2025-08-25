@@ -1,0 +1,8 @@
+# Ignore dependencies
+node_modules/
+
+# Ignore uploaded media
+uploads/
+
+# Optional logs
+*.log

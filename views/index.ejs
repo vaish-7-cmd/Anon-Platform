@@ -1,0 +1,52 @@
+<%- include('layout', { body: '' }) %>
+
+<div class="text-center mb-5">
+  <h1>Welcome to Anon Platform</h1>
+  <p style="font-family: 'Poppins', sans-serif; font-size: 1.2rem; color: #ff4da6;">
+    Ask questions or share confessions anonymously 😘.
+  </p>
+  <a class="btn btn-primary m-2" href="/questions">Ask a Question</a>
+  <a class="btn btn-secondary m-2" href="/confessions">Write a Confession</a>
+</div>
+
+<!-- 🔥 Latest Questions -->
+<div class="mb-5 mx-auto" style="max-width:600px;">
+  <h3>🔥 Latest Questions</h3>
+  <% if (questions.length === 0) { %>
+    <p>No questions yet. Be the first!</p>
+  <% } else { %>
+    <ul class="list-group">
+      <% questions.forEach(q => { %>
+        <li class="list-group-item">
+          <%= q.text %>
+          <small class="text-muted d-block"><%= q.createdAt.toDateString() %></small>
+        </li>
+      <% }) %>
+    </ul>
+    <!-- ✅ Big Button -->
+    <div class="d-grid gap-2 mt-3 col-6 mx-auto">
+      <a href="/questions" class="btn btn-primary btn-lg">See all Questions</a>
+    </div>
+  <% } %>
+</div>
+
+<!-- 💌 Latest Confessions -->
+<div class = "mx-auto" style="max-width:600px;">
+  <h3>💌 Latest Confessions</h3>
+  <% if (confessions.length === 0) { %>
+    <p>No confessions yet. Share yours!</p>
+  <% } else { %>
+    <ul class="list-group">
+      <% confessions.forEach(c => { %>
+        <li class="list-group-item">
+          <%= c.story %>
+          <small class="text-muted d-block"><%= c.createdAt.toDateString() %></small>
+        </li>
+      <% }) %>
+    </ul>
+    <!-- ✅ Big Button -->
+    <div class="d-grid gap-2 mt-3 col-6 mx-auto">
+      <a href="/confessions" class="btn btn-danger btn-lg">See all Confessions</a>
+    </div>
+  <% } %>
+</div>
